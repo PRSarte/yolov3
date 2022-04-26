@@ -284,7 +284,7 @@ if __name__ == '__main__':
         # Plot
         fig, ax = plt.subplots(3, 1, figsize=(6, 6))
         y = np.stack(y, 0)
-        ax[0].plot(x, y[:, 2], marker='.', label='mAP@0.95')
+        ax[0].plot(x, y[:, 2], marker='.', label='mAP@0.5')
         ax[0].set_ylabel('mAP')
         ax[1].plot(x, y[:, 3], marker='.', label='mAP@0.5:0.95')
         ax[1].set_ylabel('mAP')
