@@ -316,7 +316,7 @@ def train():
                                       img_size=img_size_test,
                                       model=model,
                                       conf_thres=0.001 if final_epoch else 0.01,  # 0.001 for best mAP, 0.01 for speed
-                                      iou_thres=0.95,
+                                      iou_thres=0.5,
                                       save_json=final_epoch and is_coco,
                                       single_cls=opt.single_cls,
                                       dataloader=testloader)
