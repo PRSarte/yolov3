@@ -1005,7 +1005,7 @@ def plot_evolution_results(hyp):  # from utils.utils import *; plot_evolution_re
 def plot_results_overlay(start=0, stop=0):  # from utils.utils import *; plot_results_overlay()
     # Plot training results files 'results*.txt', overlaying train and val losses
     s = ['train', 'train', 'train', 'Precision', 'mAP', 'val', 'val', 'val', 'Recall', 'F1']  # legends
-    t = ['GIoU', 'Objectness', 'Classification', 'P-R', 'mAP-F1']  # titles
+    t = ['GIoU loss', 'Objectness loss', 'Classification loss', 'P-R', 'mAP-F1']  # titles
     for f in sorted(glob.glob('results*.txt') + glob.glob('../../Downloads/results*.txt')):
         results = np.loadtxt(f, usecols=[2, 3, 4, 8, 9, 12, 13, 14, 10, 11], ndmin=2).T
         n = results.shape[1]  # number of rows
@@ -1029,8 +1029,8 @@ def plot_results(start=0, stop=0, bucket='', id=()):  # from utils.utils import 
     # Plot training 'results*.txt' as seen in https://github.com/ultralytics/yolov3#training
     fig, ax = plt.subplots(2, 5, figsize=(12, 6))
     ax = ax.ravel()
-    s = ['GIoU', 'Objectness', 'Classification', 'Precision', 'Recall',
-         'val GIoU', 'val Objectness', 'val Classification', 'mAP', 'F1']
+    s = ['GIoU', 'Objectness', 'Classification loss', 'Precision', 'Recall',
+         'val GIoU loss', 'val Objectness loss', 'val Classification', 'mAP', 'F1']
     if bucket:
         os.system('rm -rf storage.googleapis.com')
         files = ['https://storage.googleapis.com/%s/results%g.txt' % (bucket, x) for x in id]
