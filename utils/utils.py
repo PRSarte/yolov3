@@ -1023,6 +1023,7 @@ def plot_results_overlay(start=0, stop=0):  # from utils.utils import *; plot_re
             ax[i].set_ylabel(f) if i == 0 else None  # add filename
         fig.tight_layout()
         fig.savefig(f.replace('.txt', '.png'), dpi=200)
+        plt.xlabel('epochs')
 
 
 def plot_results(start=0, stop=0, bucket='', id=()):  # from utils.utils import *; plot_results()
