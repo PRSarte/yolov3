@@ -1023,7 +1023,7 @@ def plot_results_overlay(start=0, stop=0):  # from utils.utils import *; plot_re
             ax[i].set_ylabel(f) if i == 0 else None  # add filename
         fig.tight_layout()
         fig.savefig(f.replace('.txt', '.png'), dpi=200)
-        ax[i].set_xlabel('epochs')
+        
 
 
 def plot_results(start=0, stop=0, bucket='', id=()):  # from utils.utils import *; plot_results()
@@ -1048,6 +1048,8 @@ def plot_results(start=0, stop=0, bucket='', id=()):  # from utils.utils import 
                 # y /= y[0]  # normalize
             ax[i].plot(x, y, marker='.', label=Path(f).stem, linewidth=2, markersize=8)
             ax[i].set_title(s[i])
+            ax[i].set_xlabel('No. of Epochs')
+            ax[i].set_ylabel('Percentage metric')
             if i in [5, 6, 7]:  # share train and val loss y axes
                 ax[i].get_shared_y_axes().join(ax[i], ax[i - 5])
 
