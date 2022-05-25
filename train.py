@@ -69,7 +69,7 @@ def train():
     # Configure run
     data_dict = parse_data_cfg(data)
     train_path = data_dict['train']
-    test_path = data_dict['valid']
+    test_path = data_dict['test']
     nc = 1 if opt.single_cls else int(data_dict['classes'])  # number of classes
 
     # Remove previous results
